@@ -1,0 +1,21 @@
+%h2 Create New Movie
+
+= form_tag movies_path, :method => :post do
+
+  - unless @movie.errors.empty? 
+    #warning
+    Errors prevented this movie from being #{contoller.action_name}d:
+      %ul
+        - @movie.errors.each |do|
+          %li= error
+
+  = label :movie, :title, 'Title'
+  = text_field :movie, :title
+  
+  = label :movie, :rating, 'Rating'
+  = select :movie, :rating, ['G', 'PG', 'PG-13', 'R', 'NC-17']
+  
+  = label :movie, :release_date, 'Released on'
+  = date_select :movie, :release_date
+  
+  = submit_tag 'Save Changes'
