@@ -6,7 +6,7 @@ class Movie < ActiveRecord::Base
   validates :title, :presence => true
   validates :release_date, :presence => true
   validate :released_1930_or_later
-  validates :rating, :inclusion => {:in => Movie.all_ratings } unless self.grandfathered?
+ # validates :rating, :inclusion => {:in => Movie.all_ratings } unless self.grandfathered?
 
   
   def released_1930_or_later
