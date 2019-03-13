@@ -3,7 +3,7 @@
 = form_tag movies_path, :method => :post do
 
   - unless @movie.errors.empty? 
-    Errors prevented this movie from being #{contoller.action_name}d:
+      Errors prevented this movie from being #{contoller.action_name}d:
       %ul
         - @movie.errors.each |do|
           %li= error
