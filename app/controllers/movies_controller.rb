@@ -32,7 +32,7 @@ class MoviesController < ApplicationController
     
     if @movie.update_attributes!(permitted)
       flash[:notice] = #{@movie.title} was succesfully updated.
-      redirect_to movies_path(@movie)
+      redirect_to movies_path
     else
       render 'edit' 
     end
