@@ -8,7 +8,7 @@
 
   %body
     - if flash[:notice]
-      notice.message= flash[:notice]
+      flash[:notice]
     - elsif flash[:warning]
-      warning.message= flash[:warning]
+      flash[:warning]
     = yield
