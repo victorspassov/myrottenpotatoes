@@ -8,7 +8,7 @@
 
   %body
     - if flash[:notice]
-      flash[:notice]
+      = render notice: "#{flash[:notice]}"
     - elsif flash[:warning]
-      flash[:warning]
+      = render warning: "#{flash[:warning]}"
     = yield
