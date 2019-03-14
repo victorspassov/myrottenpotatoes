@@ -9,7 +9,14 @@ class MoviesController < ApplicationController
       ordering, @date_header = {:release_date => :asc}, 'hilite'
     end
     
-    @movies = Movie.order(ordering)
+    @all_ratings = Movie.all_ratings
+    @selected_ratings = params[:ratings]|| {}
+    
+    if @selected_ratings == {}
+      @selected_ratings = Hash[@all_ratings.map { |rating| [rating, rating]}]
+    end
+    
+    @movies = Movie.where(rating: @selected_ratings.keys).order(ordering)
   end
   
   def show
